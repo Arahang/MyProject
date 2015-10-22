@@ -1,0 +1,94 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivityFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="320dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/img1" />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/img2" />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/img3" />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/img4" />
+        </LinearLayout>
+
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="16dp">
+
+        <TextView
+            android:id="@+id/sign_up_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" SIGN UP OR LOGIN WITH "
+            android:layout_marginBottom="8dp"
+            android:gravity="center"/>
+
+        <Button
+            android:id="@+id/facebook_login_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Facebook"
+            android:layout_below="@id/sign_up_text_view"/>
+
+
+        <LinearLayout
+            android:id="@+id/horizontal_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/facebook_login_button">
+
+            <Button
+                android:id="@+id/google_login_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Google"
+                android:layout_weight="1"/>
+
+            <Button
+                android:id="@+id/email_login_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/termsCondition_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="By signing up,you agree to our Terms of Service"
+            android:layout_below="@id/horizontal_layout"
+            android:layout_margin="10dp"
+            android:gravity="center"/>
+
+
+
+    </RelativeLayout>
+
+</LinearLayout>
