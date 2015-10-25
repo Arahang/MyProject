@@ -66,11 +66,10 @@
             android:orientation="horizontal"
             android:layout_below="@id/facebook_login_button">
 
-            <Button
+            <com.google.android.gms.common.SignInButton
                 android:id="@+id/google_login_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Google"
                 android:layout_weight="1"/>
 
             <Button
