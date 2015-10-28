@@ -2,6 +2,7 @@
     <string name="app_name">MyProject</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="action_sign_out">Sign out</string>
     <string name="facebook_app_id">1637268766490602</string>
     <string name="title_activity_caterogies">CaterogiesActivity</string>
     <string name="title_activity_categories">CategoriesActivity</string>
