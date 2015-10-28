@@ -23,7 +23,7 @@ public class FacebookSample extends Application{
         printHashKey();
     }
 
-    public void printHashKey() {
+   public void printHashKey() {
         // Add code to print out the key hash
         try {
             PackageInfo info = getPackageManager().getPackageInfo("com.example.anna.myproject", PackageManager.GET_SIGNATURES);

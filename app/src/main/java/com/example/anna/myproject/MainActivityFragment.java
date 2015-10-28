@@ -1,5 +1,6 @@
 package com.example.anna.myproject;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.support.v4.app.Fragment;
@@ -8,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.facebook.AccessToken;
@@ -19,10 +21,13 @@ import com.facebook.Profile;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.common.Scopes;
+import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.Scope;
 import com.google.android.gms.plus.Plus;
+import com.google.android.gms.plus.model.people.Person;
 
 
 /**
@@ -31,16 +36,9 @@ import com.google.android.gms.plus.Plus;
 public class MainActivityFragment extends Fragment implements GoogleApiClient.ConnectionCallbacks,
                                                         GoogleApiClient.OnConnectionFailedListener,View.OnClickListener {
 
-
-
-    LoginButton fbLoginBtn;
-    CallbackManager callbackManager;
-    //informs whether the login was successful or not(error,cancelled)?
-    FacebookCallback <LoginResult> callbackInfo;
-
     //for google sign in
     /* Request code used to invoke sign in user interactions. */
-    private static final int RC_SIGN_IN = 0;
+    private static final int RC_SIGN_IN = 1;
     /* Client used to interact with Google APIs. */
     GoogleApiClient mGoogleApiClient;
 
@@ -52,7 +50,42 @@ public class MainActivityFragment extends Fragment implements GoogleApiClient.Co
 
     private static final int RESULT_OK = 1;
 
-    private static final String LOG_TAG = MainActivity.class.getSimpleName(); ;
+
+
+    private static final String LOG_TAG = MainActivity.class.getSimpleName();
+
+    TextView welcomeText;
+    LoginButton fbLoginBtn;
+    CallbackManager callbackManager;//informs whether the login was successful or not(error,cancelled)?
+    FacebookCallback <LoginResult> callbackInfo = new FacebookCallback<LoginResult>() {
+        @Override
+        public void onSuccess(LoginResult loginResult) {
+            AccessToken token= loginResult.getAccessToken();
+
+            //access the profile of the user
+            Profile profile = Profile.getCurrentProfile();
+            //to display the user name
+            displayProfile(profile);
+
+            //so when you login the the username is displayed.but when we rotate the phone the username disappears.
+            //to make it not happen, we must display the username in the Fragment's onResume()
+        }
+
+        @Override
+        public void onCancel() {
+
+        }
+
+        @Override
+        public void onError(FacebookException e) {
+            if(e !=null){
+                Log.e(LOG_TAG, "exception: "+ String.valueOf(e));
+
+            }
+
+
+        }
+    };
 
 
 
@@ -77,15 +110,12 @@ public class MainActivityFragment extends Fragment implements GoogleApiClient.Co
                 .addScope(new Scope(Scopes.PROFILE))
                 .addScope(new Scope(Scopes.EMAIL))
                 .build();
-
     }
 
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
-
-
         View view= inflater.inflate(R.layout.image_slider_fragment, container, false);
 
         //Properties you can customize includes
@@ -101,35 +131,61 @@ public class MainActivityFragment extends Fragment implements GoogleApiClient.Co
         fbLoginBtn.setFragment(this);
         // Other app specific specialization
 
-        callbackInfo = new FacebookCallback<LoginResult>() {
-            @Override
-            public void onSuccess(LoginResult loginResult) {
-                AccessToken token= loginResult.getAccessToken();
-
-                //access the profile of the user
-                Profile profile = Profile.getCurrentProfile();
-                //to display the user name
-                profile.getName();
-
-                //so when you login the the username is displayed.but when we rotate the phone the username disappears.
-                //to make it not happen, we must display the username in the Fragment's onResume()
-            }
-            @Override
-            public void onCancel() {
-            }
-            @Override
-            public void onError(FacebookException e) {
-            }
-        };
-
         fbLoginBtn.registerCallback(callbackManager, callbackInfo);
 
+        welcomeText = (TextView)view.findViewById(R.id.welcome_text_view);
 
+        // Large sign-in
+        SignInButton gmLoginBtn= ((SignInButton)view.findViewById(R.id.google_login_button));
+        gmLoginBtn.setSize(SignInButton.SIZE_WIDE);
         //set onclick listener on the sign in button
-       view.findViewById(R.id.google_login_button).setOnClickListener(this);
+        gmLoginBtn.setOnClickListener(this);
 
         return view;
     }
+
+
+    //display profile for facebook
+    public void displayProfile(Profile profile)
+    {
+        if (profile !=null)
+        {
+            //welcomeText.setText(" home welcome " + profile.getName());
+
+
+            String name_Account = "Facebook";
+            Intent intent = new Intent(getActivity(), CategoriesActivity.class);
+            intent.putExtra("EXTRA_TEXT_1", profile.getName());
+            intent.putExtra("EXTRA_TEXT_2", name_Account);
+
+            startActivity(intent);
+
+            //so when you login the the username is displayed.but when we rotate the phone the username disappears.
+            //to make it not happen, we must display the username in the Fragment's onResume()
+        }
+
+    }
+
+    //display profile and intent for google sign in
+    public void displayProfile()
+    {
+        Person currentPerson = Plus.PeopleApi.getCurrentPerson(mGoogleApiClient);
+            if (currentPerson != null) {
+
+                Intent intent = new Intent(getActivity(), CategoriesActivity.class);
+
+                String username = currentPerson.getDisplayName();
+                intent.putExtra("EXTRA_TEXT_1", username);
+                String name_Account = "Google";
+                intent.putExtra("EXTRA_TEXT_2", name_Account);
+                startActivity(intent);
+            }
+            else
+            {
+                Log.v(LOG_TAG, "Current person is null");
+            }
+    }
+
 
 
 
@@ -137,9 +193,10 @@ public class MainActivityFragment extends Fragment implements GoogleApiClient.Co
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        callbackManager.onActivityResult(requestCode, requestCode, data);
+        //callback for facebook login
+        callbackManager.onActivityResult(requestCode, resultCode, data);
 
-        //reset the state of the flags when control returns to your Activity in onActivityResult
+        //reset the state of the flags when control returns to your Activity in onActivityResult for google
         Log.d(LOG_TAG, "onActivityResult:" + requestCode + ":" + resultCode + ":" + data);
         if (requestCode == RC_SIGN_IN) {
             // If the error resolution was not successful we should not resolve further.
@@ -160,15 +217,6 @@ public class MainActivityFragment extends Fragment implements GoogleApiClient.Co
         }
 
     }
-    private void onSignInClicked() {
-        // User clicked the sign-in button, so begin the sign-in process and automatically
-        // attempt to resolve any errors that occur.
-        mShouldResolve = true;
-        mGoogleApiClient.connect();
-
-        // Show a message to the user that we are signing in.
-
-    }
 
 
     // GoogleApiClient.ConnectionCallbacks methods
@@ -181,9 +229,7 @@ public class MainActivityFragment extends Fragment implements GoogleApiClient.Co
         Log.d(LOG_TAG, "onConnected:" + bundle);
         mShouldResolve = false;
 
-        // Show the signed-in UI
-        //showSignedInUI();
-        Toast.makeText(getActivity(),"sign In successful",Toast.LENGTH_LONG);
+        displayProfile();
 
     }
 
@@ -210,21 +256,75 @@ public class MainActivityFragment extends Fragment implements GoogleApiClient.Co
                     mIsResolving = false;
                     mGoogleApiClient.connect();
                 }
-            } else {
+            }
+            else
+            {
                 // Could not resolve the connection result, show the user an
                 // error dialog.
                 //showErrorDialog(connectionResult);
+                GoogleApiAvailability apiAvailability = GoogleApiAvailability.getInstance();
+                int resultCode = apiAvailability.isGooglePlayServicesAvailable(getActivity());
+
+                if (resultCode != ConnectionResult.SUCCESS) {
+                    if (apiAvailability.isUserResolvableError(resultCode)) {
+                        apiAvailability.getErrorDialog(getActivity(), resultCode, RC_SIGN_IN,
+                                new DialogInterface.OnCancelListener() {
+                                    @Override
+                                    public void onCancel(DialogInterface dialog) {
+                                        mShouldResolve = false;
+
+                                        // If getCurrentPerson returns null there is generally some error with the
+                                        // configuration of the application (invalid Client ID, Plus API not enabled, etc).
+                                        Log.w(LOG_TAG, "sign in error ");
+
+                                    }
+                                }).show();
+                    }
+                    else
+                    {
+                        Log.w(LOG_TAG, "Google Play Services Error:" + connectionResult);
+                        String errorString = apiAvailability.getErrorString(resultCode);
+                        Toast.makeText(getActivity(), errorString, Toast.LENGTH_SHORT).show();
+
+                        mShouldResolve = false;
+
+                    }
+                }
+
             }
-        } else {
+        }
+        else
+        {
             // Show the signed-out UI
             //showSignedOutUI();
         }
     }
 
+    // [START on_sign_in_clicked]
+    private void onSignInClicked() {
+        // User clicked the sign-in button, so begin the sign-in process and automatically
+        // attempt to resolve any errors that occur.
+        mShouldResolve = true;
+        mGoogleApiClient.connect();
+
+        // Show a message to the user that we are signing in.
+        welcomeText.setText("signing in....");
+    }
+    // [END on_sign_in_clicked]
+
+
     @Override
     public void onResume() {
         super.onResume();
+        Log.v(LOG_TAG, "on resume called");
+
         //show facebook username even when the device orientation is changed
+        Profile profile = Profile.getCurrentProfile();
+        displayProfile(profile);
+
+        //after sign out if user again wants to login
+        mGoogleApiClient.connect();
+
     }
 
     @Override
@@ -236,6 +336,7 @@ public class MainActivityFragment extends Fragment implements GoogleApiClient.Co
     @Override
     public void onStop() {
         super.onStop();
+        Log.v(LOG_TAG,"fragment on stop called");
         mGoogleApiClient.disconnect();
     }
 

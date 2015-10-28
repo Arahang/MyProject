@@ -5,35 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/img1" />
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/img2" />
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/img3" />
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/img4" />
-        </LinearLayout>
-
-    </ScrollView>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -89,6 +61,13 @@
             android:layout_below="@id/horizontal_layout"
             android:layout_margin="10dp"
             android:gravity="center"/>
+        <TextView
+            android:id="@+id/welcome_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="WELCOME"
+            />
 
     </RelativeLayout>
 
