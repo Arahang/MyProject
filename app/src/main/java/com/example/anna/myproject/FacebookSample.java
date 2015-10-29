@@ -20,10 +20,10 @@ public class FacebookSample extends Application{
     @Override
     public void onCreate() {
         super.onCreate();
-        printHashKey();
+       // printHashKey();
     }
 
-   public void printHashKey() {
+  /* public void printHashKey() {
         // Add code to print out the key hash
         try {
             PackageInfo info = getPackageManager().getPackageInfo("com.example.anna.myproject", PackageManager.GET_SIGNATURES);
@@ -39,6 +39,7 @@ public class FacebookSample extends Application{
 
         }
     }
+    */
 
 
 }

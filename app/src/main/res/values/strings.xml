@@ -6,4 +6,7 @@
     <string name="facebook_app_id">1637268766490602</string>
     <string name="title_activity_caterogies">CaterogiesActivity</string>
     <string name="title_activity_categories">CategoriesActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

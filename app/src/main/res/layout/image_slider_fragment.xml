@@ -61,13 +61,7 @@
             android:layout_below="@id/horizontal_layout"
             android:layout_margin="10dp"
             android:gravity="center"/>
-        <TextView
-            android:id="@+id/welcome_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="WELCOME"
-            />
+
 
     </RelativeLayout>
 
