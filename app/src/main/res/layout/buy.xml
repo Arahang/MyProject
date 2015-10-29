@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="false"
+    android:scrollbars="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <ImageButton
+                android:id="@+id/mobile_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/img5"
+                android:scaleType="centerCrop"
+                android:contentDescription="@null"/>
+            <ImageButton
+                android:id="@+id/tablet_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/img5"
+                android:scaleType="centerCrop"
+                android:contentDescription="@null"/>
+            <ImageButton
+                android:id="@+id/computer_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/img5"
+                android:scaleType="centerCrop"
+                android:contentDescription="@null"/>
+            <ImageButton
+                android:id="@+id/electronics_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/img5"
+                android:scaleType="centerCrop"
+                android:contentDescription="@null"/>
+            <ImageButton
+                android:id="@+id/vehicle_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/img5"
+                android:scaleType="centerCrop"
+                android:contentDescription="@null"/>
+            <ImageButton
+                android:id="@+id/furniture_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/img5"
+                android:scaleType="centerCrop"
+                android:contentDescription="@null"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <ImageButton
+                android:id="@+id/fashion_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/img5"
+                android:scaleType="centerCrop"
+                android:contentDescription="@null"/>
+            <ImageButton
+                android:id="@+id/books_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/img5"
+                android:scaleType="centerCrop"
+                android:contentDescription="@null"/>
+            <ImageButton
+                android:id="@+id/animals_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/img5"
+                android:scaleType="centerCrop"
+                android:contentDescription="@null"/>
+            <ImageButton
+                android:id="@+id/baby_products_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/img5"
+                android:scaleType="centerCrop"
+                android:contentDescription="@null"/>
+            <ImageButton
+                android:id="@+id/services_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/img5"
+                android:scaleType="centerCrop"
+                android:contentDescription="@null"/>
+            <ImageButton
+                android:id="@+id/real_estate_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/img5"
+                android:scaleType="centerCrop"
+                android:contentDescription="@null"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>

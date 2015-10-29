@@ -307,8 +307,8 @@ public class MainActivityFragment extends Fragment implements GoogleApiClient.Co
         mShouldResolve = true;
         mGoogleApiClient.connect();
 
-        // Show a message to the user that we are signing in.
-        welcomeText.setText("signing in....");
+
+
     }
     // [END on_sign_in_clicked]
 
