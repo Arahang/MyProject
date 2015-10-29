@@ -116,7 +116,7 @@ public class MainActivityFragment extends Fragment implements GoogleApiClient.Co
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
-        View view= inflater.inflate(R.layout.image_slider_fragment, container, false);
+        View view= inflater.inflate(R.layout.login_fragment, container, false);
 
         //Properties you can customize includes
         // LoginBehavior, DefaultAudience,
@@ -133,7 +133,7 @@ public class MainActivityFragment extends Fragment implements GoogleApiClient.Co
 
         fbLoginBtn.registerCallback(callbackManager, callbackInfo);
 
-        welcomeText = (TextView)view.findViewById(R.id.welcome_text_view);
+
 
         // Large sign-in
         SignInButton gmLoginBtn= ((SignInButton)view.findViewById(R.id.google_login_button));
