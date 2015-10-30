@@ -1,11 +1,13 @@
 package com.example.anna.myproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.Button;
 import android.widget.ImageButton;
 
 
@@ -36,9 +38,19 @@ public class CategoriesDetailsFragment extends Fragment implements View.OnClickL
 
             case 1:
                  rootView = inflater.inflate(R.layout.buy, container, false);
+                ImageButton mobileCateg= (ImageButton)rootView.findViewById(R.id.mobile_button);
+                ImageButton tabletCateg= (ImageButton)rootView.findViewById(R.id.tablet_button);
+                ImageButton fashionCateg= (ImageButton)rootView.findViewById(R.id.fashion_button);
+
+                mobileCateg.setOnClickListener(this);
+                tabletCateg.setOnClickListener(this);
+                fashionCateg.setOnClickListener(this);
+
                  return rootView;
             case 2:
                  rootView = inflater.inflate(R.layout.sell, container, false);
+                Button adPost = (Button)rootView.findViewById(R.id.post_ad_button);
+                adPost.setOnClickListener(this);
                 return rootView;
             case 3:
                  rootView = inflater.inflate(R.layout.rent, container, false);
@@ -50,11 +62,34 @@ public class CategoriesDetailsFragment extends Fragment implements View.OnClickL
     @Override
     public void onClick(View v) {
 
-                /*
+               switch (v.getId())
+               {
+
+                   case R.id.mobile_button :
+                   {
+                       Intent intent = new Intent(getActivity(), MobileCategoriesActivity.class);
+                       startActivity(intent);
+                   }
+                   case R.id.tablet_button :
+                   {
+                       Intent intent = new Intent(getActivity(), TabletCategoriesActivity.class);
+                       startActivity(intent);
+                   }
+                   case R.id.fashion_button :
+                   {
+                       Intent intent = new Intent(getActivity(), FashionCategoriesActivity.class);
+                       startActivity(intent);
+                   }
+                   case R.id.post_ad_button :
+                   {
+                       Intent intent = new Intent(getActivity(), AdFormActivity.class);
+                       startActivity(intent);
+                   }
 
 
-                 */
 
+
+               }
 
     }
 }

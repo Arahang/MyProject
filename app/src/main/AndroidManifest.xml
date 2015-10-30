@@ -5,7 +5,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
-
+    <uses-feature android:name="android.hardware.camera" android:required="true"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name=".FacebookSample"
@@ -13,7 +14,6 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
@@ -35,7 +35,39 @@
         <activity
             android:name=".CategoriesActivity"
             android:label="@string/title_activity_categories"
-            android:theme="@style/AppTheme2">
+            android:theme="@style/AppTheme2" >
+        </activity>
+        <activity
+            android:name=".AdFormActivity"
+            android:label="@string/title_activity_ad_form"
+            android:parentActivityName=".CategoriesActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.anna.myproject.CategoriesActivity" />
+        </activity>
+        <activity
+            android:name=".MobileCategoriesActivity"
+            android:label="@string/title_activity_mobile_categories"
+            android:parentActivityName=".CategoriesActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.anna.myproject.CategoriesActivity" />
+        </activity>
+        <activity
+            android:name=".TabletCategoriesActivity"
+            android:label="@string/title_activity_tablet_categories"
+            android:parentActivityName=".CategoriesActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.anna.myproject.CategoriesActivity" />
+        </activity>
+        <activity
+            android:name=".FashionCategoriesActivity"
+            android:label="@string/title_activity_fashion_categories"
+            android:parentActivityName=".CategoriesActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.anna.myproject.CategoriesActivity" />
         </activity>
     </application>
 

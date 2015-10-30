@@ -1,19 +1,16 @@
 package com.example.anna.myproject;
 
-import android.app.ActionBar;
+
 import android.content.Intent;
-import android.support.v4.app.FragmentTransaction;
+
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
-
 
 import com.facebook.FacebookSdk;
 import com.facebook.login.LoginManager;
@@ -69,14 +66,14 @@ public class CategoriesActivity extends ActionBarActivity implements GoogleApiCl
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(customFragmentAdapter);
 
-        // Give the SlidingTabLayout the ViewPager, this must be done AFTER the ViewPager has had
-        // it's PagerAdapter set.
-        // Creating The Toolbar and setting it as the Toolbar for the activity
-
+        /* Give the SlidingTabLayout the ViewPager, this must be done AFTER the ViewPager has had
+         it's PagerAdapter set.
+         */
+        //Creating The Toolbar and setting it as the Toolbar for the activity
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
 
-        // Assiging the Sliding Tab Layout View
+        // Assigning the Sliding Tab Layout View
         tabs = (SlidingTabLayout) findViewById(R.id.tabs);
         // To make the Tabs Fixed set this true, This makes the tabs Space Evenly in Available width
         tabs.setDistributeEvenly(true);
@@ -186,6 +183,8 @@ public class CategoriesActivity extends ActionBarActivity implements GoogleApiCl
         super.onStop();
         Log.v(LOG_TAG, "on stop called....");
         mGoogleApiClient.disconnect();
+
+
     }
 
     @Override

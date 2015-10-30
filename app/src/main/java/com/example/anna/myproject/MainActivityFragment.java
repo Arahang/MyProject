@@ -52,7 +52,7 @@ public class MainActivityFragment extends Fragment implements GoogleApiClient.Co
 
 
 
-    private static final String LOG_TAG = MainActivity.class.getSimpleName();
+    private static final String LOG_TAG = MainActivityFragment.class.getSimpleName();
 
     TextView welcomeText;
     LoginButton fbLoginBtn;
