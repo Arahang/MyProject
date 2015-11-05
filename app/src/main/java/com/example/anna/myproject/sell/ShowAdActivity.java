@@ -22,7 +22,7 @@ import com.example.anna.myproject.sqlite.DatabaseOpenHelper;
 public class ShowAdActivity extends ActionBarActivity implements View.OnClickListener{
 
     private static final String LOG_TAG = "ShowAdActivity";
-    long id;
+
     DatabaseOpenHelper db;
 
     @Override
@@ -34,10 +34,10 @@ public class ShowAdActivity extends ActionBarActivity implements View.OnClickLis
         db = new DatabaseOpenHelper(getApplicationContext());
         //set the default value for the intent using getCount()
        // Log.v(LOG_TAG, "row count = "+ db.getRowCount());
-        id = intent.getLongExtra("EXTRA_TEXT", db.getRowCount());
+        long id = intent.getLongExtra("EXTRA_TEXT", db.getRowCount());
 
         //Log.v(LOG_TAG, "row id = "+ id);
-        showAdDetails();
+        showAdDetails(id);
 
        Button back = (Button)findViewById(R.id.back_button);
         back.setOnClickListener(this);
@@ -45,7 +45,7 @@ public class ShowAdActivity extends ActionBarActivity implements View.OnClickLis
 
     }
 
-    private void showAdDetails() {
+    private void showAdDetails(long id) {
 
         DatabaseOpenHelper db = new DatabaseOpenHelper(getApplicationContext());
 

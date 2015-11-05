@@ -29,8 +29,6 @@ import java.io.ByteArrayOutputStream;
 public class PostSuccessfulActvity extends ActionBarActivity implements View.OnClickListener    {
 
 
-
-
     DatabaseOpenHelper db;
     long row_id;
 
@@ -91,8 +89,6 @@ public class PostSuccessfulActvity extends ActionBarActivity implements View.OnC
         }
 
     }
-
-
 
 
 }

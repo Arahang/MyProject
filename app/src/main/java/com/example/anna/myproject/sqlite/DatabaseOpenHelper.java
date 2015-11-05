@@ -21,7 +21,7 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
     //In order to upgrade the Database in Android
     // you should increment the DATABASE_VERSION by one,
     // in order for the SQLOpenHelper to know that it must called the onUpgrade method.
-    private static final int DATABASE_VERSION = 21;
+    private static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "ShoppingData.db" ;
     public static final String TABLE_NAME = "AdDetails" ;
     public static final String COLUMN_ID = "_id" ;
@@ -55,14 +55,12 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(TABLE_CREATE);
 
-
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
-
         onCreate(db);
 
     }
@@ -70,16 +68,14 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
     /*
     * Creating a Ad
     */
-
-    public long createAd(AdDetailsModel ad, int id) {
+    public long createAd(AdDetailsModel ad) {
 
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        if(id == 1)
-        {
-            values.put(COLUMN_ID, id);
-        }
+
+        values.putNull(COLUMN_ID);
+
         values.put(COLUMN_TITLE, ad.getTitle());
         values.put(COLUMN_CATEGORY, ad.getCategory());
         values.put(COLUMN_DESCRIPTION, ad.getDescription());
@@ -88,8 +84,6 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
         values.put(COLUMN_NAME, ad.getName());
         values.put(COLUMN_PHOTO, ad.getImage());
         values.put(COLUMN_PHONE, ad.getPhone());
-
-
 
         // insert row
         //returns the row ID of the newly inserted row, or -1 if an error occurred
@@ -101,8 +95,6 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
         }
         else
             Log.v(LOG_TAG, "row " + ad_id + " inserted successfully....");
-
-
 
         return ad_id;
     }
@@ -123,13 +115,12 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
         Cursor c = db.rawQuery(selectQuery, null);
         //check the no of rows and whether move to first is true
         c.moveToFirst();
-        Boolean move = c.moveToFirst();
+        //Boolean move = c.moveToFirst();
         //Log.v(LOG_TAG, "cursor count is = " + c.getCount());
         //Log.v(LOG_TAG, "cursor is " + c + " or move to first is" + move);
 
 
         if (c != null && c.moveToFirst()) {
-
 
             ad.setId(c.getInt(c.getColumnIndex(COLUMN_ID)));
             ad.setTitle(c.getString(c.getColumnIndex(COLUMN_TITLE)));
@@ -140,13 +131,10 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
             ad.setPhone(c.getString(c.getColumnIndex(COLUMN_PHONE)));
             ad.setPrice(c.getInt(c.getColumnIndex(COLUMN_PRICE)));
             ad.setImage(c.getBlob(c.getColumnIndex(COLUMN_PHOTO)));
-        }
 
             c.close();
-
             db.close();
-
-
+        }
 
         return ad;
     }

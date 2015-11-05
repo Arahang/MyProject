@@ -38,7 +38,7 @@ public class AdFormActivity extends ActionBarActivity implements View.OnClickLis
     public String imagePath;
     ImageView camera_image_view;
     DatabaseOpenHelper db;
-    static int id = 1;
+    //static int id = 1;
     int price;
     String phone;
     String category;
@@ -137,7 +137,10 @@ public class AdFormActivity extends ActionBarActivity implements View.OnClickLis
         }
         if(v.getId() == R.id.button_post_ad) {
 
-                submitDbAd();
+            long row_id = submitDbAd();
+            Intent intent = new Intent(this,PostSuccessfulActvity.class);
+            intent.putExtra(Intent.EXTRA_TEXT, row_id);
+            startActivity(intent);
         }
 
     }
@@ -195,7 +198,7 @@ public class AdFormActivity extends ActionBarActivity implements View.OnClickLis
 
     }
 
-    public void submitDbAd()
+    public long submitDbAd()
     {
         EditText title = (EditText)findViewById(R.id.editText_Title);
         EditText description = (EditText)findViewById(R.id.editText_description);
@@ -256,7 +259,7 @@ public class AdFormActivity extends ActionBarActivity implements View.OnClickLis
 
         db = new DatabaseOpenHelper(getApplicationContext());
 
-        long row = db.createAd(ad, id);
+        long row = db.createAd(ad);
         db.closeDB();
 
         if(row == -1)
@@ -269,13 +272,11 @@ public class AdFormActivity extends ActionBarActivity implements View.OnClickLis
         else
         {
             Log.v(LOG_TAG, "Row _id = " + row + " is inserted");
-            Intent intent = new Intent(this,PostSuccessfulActvity.class);
-            intent.putExtra(Intent.EXTRA_TEXT, row);
-            startActivity(intent);
 
-            id++;
 
         }
+
+        return row;
 
     }
 
