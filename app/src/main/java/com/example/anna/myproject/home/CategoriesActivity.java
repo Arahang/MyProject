@@ -1,4 +1,4 @@
-package com.example.anna.myproject;
+package com.example.anna.myproject.home;
 
 
 import android.content.Intent;
@@ -12,6 +12,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.example.anna.myproject.R;
+import com.example.anna.myproject.login.MainActivity;
 import com.facebook.FacebookSdk;
 import com.facebook.login.LoginManager;
 import com.google.android.gms.common.ConnectionResult;
@@ -56,7 +58,6 @@ public class CategoriesActivity extends ActionBarActivity implements GoogleApiCl
 
         setContentView(R.layout.activity_categories);
 
-        Log.v(LOG_TAG, "welcome anamika ");
 
         /*
              hook the ViewPager layout to a PagerAdapter which will populate our ViewPager with pages

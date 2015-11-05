@@ -5,8 +5,13 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
-    <uses-feature android:name="android.hardware.camera" android:required="true"/>
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name=".FacebookSample"
@@ -19,7 +24,7 @@
             android:value="@string/facebook_app_id" />
 
         <activity
-            android:name=".MainActivity"
+            android:name=".login.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,41 +38,49 @@
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
-            android:name=".CategoriesActivity"
+            android:name=".home.CategoriesActivity"
             android:label="@string/title_activity_categories"
             android:theme="@style/AppTheme2" >
         </activity>
         <activity
-            android:name=".AdFormActivity"
+            android:name=".sell.AdFormActivity"
             android:label="@string/title_activity_ad_form"
-            android:parentActivityName=".CategoriesActivity" >
+            android:parentActivityName=".home.CategoriesActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.anna.myproject.CategoriesActivity" />
+                android:value=".home.CategoriesActivity" />
         </activity>
         <activity
-            android:name=".MobileCategoriesActivity"
+            android:name=".buy.MobileCategoriesActivity"
             android:label="@string/title_activity_mobile_categories"
-            android:parentActivityName=".CategoriesActivity" >
+            android:parentActivityName=".home.CategoriesActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.anna.myproject.CategoriesActivity" />
+                android:value=".home.CategoriesActivity" />
         </activity>
         <activity
-            android:name=".TabletCategoriesActivity"
+            android:name=".buy.TabletCategoriesActivity"
             android:label="@string/title_activity_tablet_categories"
-            android:parentActivityName=".CategoriesActivity" >
+            android:parentActivityName=".home.CategoriesActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.anna.myproject.CategoriesActivity" />
+                android:value=".home.CategoriesActivity" />
         </activity>
         <activity
-            android:name=".FashionCategoriesActivity"
+            android:name=".buy.FashionCategoriesActivity"
             android:label="@string/title_activity_fashion_categories"
-            android:parentActivityName=".CategoriesActivity" >
+            android:parentActivityName=".home.CategoriesActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.anna.myproject.CategoriesActivity" />
+                android:value=".home.CategoriesActivity" />
+        </activity>
+        <activity
+            android:name=".sell.PostSuccessfulActvity"
+            android:label="@string/title_activity_post_successful_actvity" >
+        </activity>
+        <activity
+            android:name=".sell.ShowAdActivity"
+            android:label="@string/title_activity_show_ad" >
         </activity>
     </application>
 

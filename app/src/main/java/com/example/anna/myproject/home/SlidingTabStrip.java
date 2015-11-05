@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.anna.myproject;
+package com.example.anna.myproject.home;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -24,6 +24,8 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.LinearLayout;
+
+import com.example.anna.myproject.home.SlidingTabLayout;
 
 class SlidingTabStrip extends LinearLayout {
 

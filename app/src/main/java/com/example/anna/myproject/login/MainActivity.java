@@ -1,10 +1,12 @@
-package com.example.anna.myproject;
+package com.example.anna.myproject.login;
+
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.anna.myproject.R;
 import com.facebook.appevents.AppEventsLogger;
 
 
@@ -65,4 +67,6 @@ public class MainActivity extends ActionBarActivity {
         super.onStop();
 
     }
+
+
 }

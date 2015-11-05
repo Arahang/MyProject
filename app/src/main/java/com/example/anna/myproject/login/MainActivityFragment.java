@@ -1,4 +1,4 @@
-package com.example.anna.myproject;
+package com.example.anna.myproject.login;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.anna.myproject.home.CategoriesActivity;
+import com.example.anna.myproject.R;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;

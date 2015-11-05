@@ -1,4 +1,4 @@
-package com.example.anna.myproject;
+package com.example.anna.myproject.home;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,12 @@ import android.view.ViewGroup;
 
 import android.widget.Button;
 import android.widget.ImageButton;
+
+import com.example.anna.myproject.buy.FashionCategoriesActivity;
+import com.example.anna.myproject.buy.MobileCategoriesActivity;
+import com.example.anna.myproject.R;
+import com.example.anna.myproject.buy.TabletCategoriesActivity;
+import com.example.anna.myproject.sell.AdFormActivity;
 
 
 /**
@@ -49,7 +55,7 @@ public class CategoriesDetailsFragment extends Fragment implements View.OnClickL
                  return rootView;
             case 2:
                  rootView = inflater.inflate(R.layout.sell, container, false);
-                Button adPost = (Button)rootView.findViewById(R.id.post_ad_button);
+                Button adPost = (Button)rootView.findViewById(R.id.button_post_ad);
                 adPost.setOnClickListener(this);
                 return rootView;
             case 3:
@@ -80,7 +86,7 @@ public class CategoriesDetailsFragment extends Fragment implements View.OnClickL
                        Intent intent = new Intent(getActivity(), FashionCategoriesActivity.class);
                        startActivity(intent);
                    }
-                   case R.id.post_ad_button :
+                   case R.id.button_post_ad:
                    {
                        Intent intent = new Intent(getActivity(), AdFormActivity.class);
                        startActivity(intent);

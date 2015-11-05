@@ -15,7 +15,7 @@
         android:theme="@style/Base.ThemeOverlay.AppCompat.Dark"/>
 
 
-    <com.example.anna.myproject.SlidingTabLayout
+    <com.example.anna.myproject.home.SlidingTabLayout
         android:id="@+id/tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

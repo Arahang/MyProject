@@ -1,4 +1,4 @@
-package com.example.anna.myproject;
+package com.example.anna.myproject.home;
 
 
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import com.example.anna.myproject.home.CategoriesDetailsFragment;
 
 
 /**
