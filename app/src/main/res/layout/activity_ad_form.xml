@@ -1,0 +1,132 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.anna.myproject.sell.AdFormActivity">
+
+
+    <EditText
+        android:id="@+id/editText_Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Add your title for the ad"
+        android:layout_margin="4dp"/>
+
+    <TextView
+        android:id="@+id/category_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose a category"
+        android:layout_below="@id/editText_Title"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_margin="4dp"/>
+
+    <Spinner
+        android:id="@+id/spinner_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editText_Title"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="100dp"
+        android:layout_marginEnd="70dp"
+        android:entries="@array/category_arrays"
+        android:prompt="@string/category_prompt" />
+
+    <EditText
+        android:id="@+id/editText_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Description"
+        android:layout_below="@id/category_textView"
+        android:layout_margin="4dp"/>
+
+    <EditText
+        android:id="@+id/editText_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Location"
+        android:layout_below="@id/editText_description"
+        android:layout_margin="4dp"/>
+
+    <EditText
+        android:id="@+id/editText_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Price"
+        android:inputType="number"
+        android:layout_below="@id/editText_location"
+        android:layout_margin="4dp"/>
+
+    <EditText
+        android:id="@+id/editText_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Your Name"
+        android:layout_below="@id/editText_price"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_margin="4dp"/>
+
+    <EditText
+        android:id="@+id/editText_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+
+        android:hint="Phone Number"
+        android:layout_below="@id/editText_name"
+        android:layout_margin="4dp"/>
+
+
+    <TextView
+        android:id="@+id/add_image_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add pictures of the item"
+        android:textSize="15sp"
+        android:layout_below="@id/editText_phone"
+        android:layout_margin="4dp"/>
+
+
+    <Button
+        android:id="@+id/button_upload"
+        android:text="Upload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editText_phone"
+        android:layout_toRightOf="@id/add_image_textView"
+        android:layout_margin="4dp"/>
+
+    <ImageButton
+        android:id="@+id/button_camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_menu_camera"
+        android:background="#FF9800"
+        android:layout_below="@id/editText_phone"
+        android:layout_toRightOf="@id/button_upload"
+        android:layout_margin="4dp"/>
+
+    <ImageView
+        android:id="@+id/imageView_camera_image"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_below="@id/add_image_textView"
+        android:layout_margin="4dp"/>
+
+    <Button
+        android:id="@+id/button_post_ad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="POST AD"
+        android:layout_marginTop="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/button_camera"
+        android:layout_marginRight="30dp"/>
+
+
+
+</RelativeLayout>

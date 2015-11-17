@@ -1,0 +1,45 @@
+How to genrate a api key for facebook for android app
+  https://www.youtube.com/watch?v=myWu-q8Q2NA
+  
+How to generate the debug certificate key
+  1. https://developers.google.com/identity/sign-in/android/start-integrating
+  2. https://developers.google.com/mobile/add?platform=android&cntapi=signin&cnturl=https:%2F%2Fdevelopers.google.com%2Fidentity%2Fsign-in%2Fandroid%2Fsign-in%3Fconfigured%3Dtrue&cntlbl=Continue%20Adding%20Sign-In
+  3. Authenticating Your Client
+
+Certain Google Play services (such as Google Sign-in and App Invites) require you to provide the SHA-1 of your signing certificate so we can create an OAuth2 client and API key for your app.
+To get your SHA-1, follow these instructions:
+
+Open a terminal and run the keytool utility provided with Java to get the SHA-1 fingerprint of the certificate. 
+You should get both the release and debug certificate fingerprints.
+
+//after your app is complete and you want to release the app on googleplay
+To get the release certificate fingerprint:
+
+keytool -exportcert -alias <your-key-name> -keystore "<path-to-production-keystore>" -list -v
+
+//to use signin services while debugging the app
+To get the debug certificate fingerprint:
+
+keytool -exportcert -alias androiddebugkey -keystore "<path-to-debug-keystore>" -list -v
+
+Note: On Windows, the debug keystore can be found at C:\Users\<USERNAME>.android\debug.keystore. 
+The keytool utility prompts you to enter a password for the keystore. 
+The default password for the debug keystore is android. The keytool then prints the fingerprint to the terminal. 
+
+For example:
+Certificate fingerprint: SHA1: DA:39:A3:EE:5E:6B:4B:0D:32:55:BF:EF:95:60:18:90:AF:D8:07:09
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+ 
+C:\"Program Files\Java\jdk1.7.0_79\bin\keytool" -exportcert -alias androiddebugkey -keystore "C:\Users\Anna\.android\debug.keystore" -list -v
+ //dont forget to add double quotes
+ 
+ //to generate custom keystore
+https://www.youtube.com/watch?v=P-IbtOeQld4
+
+
+
+
+
+
+  

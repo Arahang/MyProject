@@ -1,0 +1,77 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivityFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/relativeLayout">
+
+        <TextView
+            android:id="@+id/sign_up_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" SIGN UP OR LOGIN WITH "
+            android:layout_marginBottom="8dp"
+            android:gravity="center"/>
+
+
+        <com.facebook.login.widget.LoginButton
+            android:id="@+id/facebook_login_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_below="@id/sign_up_text_view"
+            android:text="Facebook"/>
+
+
+        <LinearLayout
+            android:id="@+id/horizontal_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/facebook_login_button">
+
+            <com.google.android.gms.common.SignInButton
+                android:id="@+id/google_login_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+            <Button
+                android:id="@+id/email_login_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/termsCondition_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="By signing up,you agree to our Terms of Service"
+            android:layout_below="@id/horizontal_layout"
+            android:layout_margin="6dp"
+            android:gravity="center"/>
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
+

@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">MyProject</string>
+    <string name="hello_world">You have successfully posted your AD!!</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_sign_out">Sign out</string>
+    <string name="facebook_app_id">1637268766490602</string>
+    <string name="title_activity_caterogies">Categories</string>
+    <string name="title_activity_categories">Categories</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_ad_form">AdForm</string>
+    <string name="title_activity_mobile_categories">MobileCategories</string>
+    <string name="title_activity_tablet_categories">TabletCategories</string>
+    <string name="title_activity_fashion_categories">FashionCategories</string>
+    <string name="title_activity_post_successful_actvity">PostSuccessful</string>
+    <string name="title_activity_show_ad">ShowAD</string>
+
+    <string name="category_prompt">Choose a category</string>
+
+    <string-array name="category_arrays">
+        <item>Mobile</item>
+        <item>Vehicle</item>
+        <item>Fashion</item>
+        <item>Tablet</item>
+        <item>Electronics</item>
+        <item>Computer</item>
+        <item>Furniture</item>
+        <item>Books</item>
+    </string-array>
+</resources>
