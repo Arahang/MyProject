@@ -93,9 +93,6 @@ public class CategoriesActivity extends ActionBarActivity implements GoogleApiCl
 
 
 
-
-
-
     }
 
     @Override

@@ -103,7 +103,7 @@ public class MainActivity extends FragmentActivity implements GoogleApiClient.Co
 
         //google sign in
         // Build GoogleApiClient with access to basic profile
-        mGoogleApiClient = new GoogleApiClient.Builder(this)
+        mGoogleApiClient = new GoogleApiClient.Builder(getApplicationContext())
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this)
                 .addApi(Plus.API)
@@ -249,7 +249,7 @@ public class MainActivity extends FragmentActivity implements GoogleApiClient.Co
         }
     }
 
-    // [START on_sign_in_clicked]
+    // [START on_sign_in_clicked] google sign in
     private void onSignInClicked() {
         // User clicked the sign-in button, so begin the sign-in process and automatically
         // attempt to resolve any errors that occur.
@@ -340,7 +340,7 @@ public class MainActivity extends FragmentActivity implements GoogleApiClient.Co
 
 
             String name_Account = "Facebook";
-            Intent intent = new Intent(this, CategoriesActivity.class);
+            Intent intent = new Intent(this,CategoriesActivity.class);
             intent.putExtra("EXTRA_TEXT_1", profile.getName());
             intent.putExtra("EXTRA_TEXT_2", name_Account);
 
