@@ -1,4 +1,5 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivityFragment"
     android:layout_width="match_parent"
@@ -69,17 +70,15 @@
             android:layout_margin="6dp"
             android:gravity="center"/>
 
-
     </RelativeLayout>
+
     <com.viewpagerindicator.CirclePageIndicator
         android:id="@+id/indicator"
         android:padding="10dip"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_a="true"
-        android:layout_above="@+id/relativeLayout"/>
-
-
+        android:layout_above="@+id/relativeLayout"
+        />
 
 
 </RelativeLayout>
