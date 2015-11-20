@@ -5,10 +5,6 @@
     android:background="@android:color/transparent"
     android:id="@+id/frag_2">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/img2"
-        android:scaleType="centerCrop"/>
+
 
 </RelativeLayout>
