@@ -4,6 +4,8 @@ package com.example.anna.myproject.login;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentSender;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LayerDrawable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 
@@ -55,6 +57,7 @@ public class MainActivity extends FragmentActivity implements GoogleApiClient.Co
 
     MyPagerAdapter pagerAdapter;
     ViewPager mViewPager;
+
 
 
     private static final String LOG_TAG = MainActivity.class.getSimpleName();
@@ -120,8 +123,43 @@ public class MainActivity extends FragmentActivity implements GoogleApiClient.Co
         pagerAdapter = new MyPagerAdapter(getSupportFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(pagerAdapter);
+
+         final LayerDrawable background = (LayerDrawable) mViewPager.getBackground();
+        background.getDrawable(0).setAlpha(0); // this is the lowest drawable
+        background.getDrawable(1).setAlpha(0);
+        background.getDrawable(2).setAlpha(0);
+        background.getDrawable(3).setAlpha(0);
+        background.getDrawable(4).setAlpha(255); // this is the upper one
+
+        mViewPager.setPageTransformer(true, new ViewPager.PageTransformer() {
+            @Override
+            public void transformPage(View view, float position) {
+
+                int index = (Integer) view.getTag();
+                Drawable currentDrawableInLayerDrawable;
+                currentDrawableInLayerDrawable = background.getDrawable(index);
+
+
+                if (position <= -1 || position >= 1) {
+                    currentDrawableInLayerDrawable.setAlpha(0);
+                } else if (position == 0) {
+                    currentDrawableInLayerDrawable.setAlpha(255);
+                } else {
+                    currentDrawableInLayerDrawable.setAlpha((int) (255 - Math.abs(position * 255)));
+                }
+
+            }
+        });
+
+
+
+
         PageIndicator indicator = (CirclePageIndicator)findViewById(R.id.indicator);
         indicator.setViewPager(mViewPager);
+
+
+
+
 
         //Properties you can customize includes
         // LoginBehavior, DefaultAudience,

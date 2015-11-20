@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.view.View;
+
+import com.example.anna.myproject.R;
 
 /**
  * Created by Anna on 05-11-2015.
@@ -43,5 +46,27 @@ public class MyPagerAdapter extends FragmentPagerAdapter {
     @Override
     public int getCount() {
         return PAGE_COUNT;
+    }
+
+    @Override
+    public boolean isViewFromObject(View view, Object object) {
+        if(view.getId()== R.id.frag_1){
+            view.setTag(4);
+        }
+        if(view.getId()== R.id.frag_2){
+            view.setTag(3);
+        }
+        if(view.getId()== R.id.frag_3){
+            view.setTag(2);
+        }
+        if(view.getId()== R.id.frag_4){
+            view.setTag(1);
+        }
+        if(view.getId()== R.id.frag_5){
+            view.setTag(0);
+        }
+
+
+        return super.isViewFromObject(view, object);
     }
 }
